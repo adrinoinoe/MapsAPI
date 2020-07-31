@@ -11,3 +11,8 @@ window.onload = function(){
 	var body = document.getElementById("bodyDetails");
 	body.innerHTML = '<h1 class="Name">'+listLocales[id][1]+'</h1><img class="locationImage" src="'+listLocales[id][4]+'"><br><p class="owner">Dono: </p><p class="ownerName">'+listLocales[id][2]+'</p><p class="details"> '+listLocales[id][5]+'</p>';
 };
+
+function seeProducts(){
+	var id = window.location.search.replace("?id=", "");
+	window.location.href = "productList.html?id="+id;
+}

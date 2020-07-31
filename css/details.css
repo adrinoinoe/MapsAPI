@@ -50,4 +50,17 @@ p.details {
     text-align: justify;
     font-size: 1.1rem;
     line-height: 1.7rem;
+    padding-bottom: 4%;
+}
+
+.seeProducts {
+    position: fixed;
+    top: 90%;
+    left: 0;
+    color: #fff;
+    background-color: #545E75;
+    border: none;
+    padding: 10px 20px 10px 10px;
+    border-radius: 0 6px 36px 0;
+    font-size: 15px;
 }
