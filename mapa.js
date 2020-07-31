@@ -1,8 +1,27 @@
 let map;
-const centerMap = {lat: -3.716816, lng: -38.519115};
 
-function initMap()
+function navigatorGeolocationSuport(){
+  if (navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(initMap);
+  }
+  else{
+    alert("O seu navegador não possui suporte para esta ferramenta. Por favor utilizar navegadores que suportam geolocalização")
+  }
+}
+
+function getCurrentLatitude(position){
+  return position.coords.latitude;
+}
+
+function getCurrentLongitude(position){
+  return position.coords.longitude; 
+}
+
+function initMap(position)
 {
+    var latitude = getCurrentLatitude(position);
+    var longitude = getCurrentLongitude(position);
+    var centerMap = {lat: latitude, lng: longitude};
     //Para criar controles customizados:
     // Interação é nossa responsabilidade;
     // Div- Controle;
@@ -45,8 +64,8 @@ function initMap()
 
     const mapOptions = 
     {
-        center: {lat: -3.716816, lng: -38.519115},
-        zoom: 8,
+        center: {lat: latitude, lng: longitude},
+        zoom: 18,
         mapTypeId: 'roadmap', // roadmap, satellite, hybrid, terrain
         disableDefaultUI: true,
         // alteração no estilo do mapa
@@ -164,7 +183,7 @@ function initMap()
         // adicionar marcadores no mapa
         const marker = new google.maps.Marker
         ({
-            position: {lat: -3.716816, lng: -38.519115},
+            position: {lat: latitude, lng: longitude},
             map: map,
             title: 'Serviço',
             // label: '',
@@ -188,7 +207,5 @@ function initMap()
         marker.addListener('click', () => 
         {
             infoWindow.open(map, marker);
-        });
-
-        
+        });       
 }
