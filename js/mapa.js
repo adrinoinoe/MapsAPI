@@ -1,4 +1,5 @@
 let map;
+var infoObj = [];
 var locations = [
   ['Lava jato do Pyke', -20.333679, -49.205374, 'Limpa tudo, serio tudo mesmo', 'details.html?id=0'],
   ['Sivir Mercados', -20.332762, -49.205051, 'SIVIRem os precos em avizem', 'details.html?id=1'],
@@ -46,19 +47,19 @@ function initMap(position)
             this.controlUI = document.createElement('div');
             this.controlText = document.createElement('div');
 
-            this.controlUI.style.backgroundColor = '#fff';
-            this.controlUI.style.border = '2px solid #ebebeb';
-            this.controlUI.style.borderRadius = '3px';
-            this.controlUI.style.padding = '6px';
+            this.controlUI.style.backgroundColor = '#F0ED4A';
+            this.controlUI.style.border = 'none';
+            this.controlUI.style.borderRadius = '0px 0px 25px 25px';
+            this.controlUI.style.padding = '7px 37px';
             this.controlUI.style.cursor = 'pointer';  
             this.controlUI.title = 'Centralizar Mapa';
 
             this.controlDiv.appendChild(this.controlUI);
 
-            this.controlText.style.fontSize = '16px';
+            this.controlText.style.fontSize = '18px';
             this.controlText.style.textAlign = 'center';
             this.controlText.style.lineHeight = '20px';
-            this.controlText.style.color = '#333';
+            this.controlText.style.color = '#545E75';
             this.controlText.innerHTML = 'Centralizar';
 
             this.controlUI.appendChild(this.controlText);
@@ -231,10 +232,11 @@ function addBuyPoints(position){
             position: new google.maps.LatLng(locations[i][1], locations[i][2]),
               title: locations[i][0],
               map: map,
+              animation: google.maps.Animation.DROP,
               icon: 'img/logo.png'
             });
 
-            let infoWindow = new google.maps.InfoWindow
+            const infoWindow = new google.maps.InfoWindow
             ({
                 content: '<div class="infoWindow"><a class="infoLink" href="'+locations[i][4]+'">'+locations[i][0]+'</a><br><p>'+locations[i][3]+'</p></div>',
             });
@@ -242,9 +244,19 @@ function addBuyPoints(position){
 
             marker.addListener('click', () => 
             {
+                closeOtherInfo();
                 infoWindow.open(map, marker);
+                infoObj[0] = infoWindow
             }); 
 
         }
+    }
+}
+
+function closeOtherInfo(){
+    if(infoObj.length > 0){    
+        infoObj[0].set("marker", null);
+        infoObj[0].close();
+        infoObj[0],length = 0;
     }
 }

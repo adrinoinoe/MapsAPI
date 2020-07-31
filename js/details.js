@@ -9,5 +9,5 @@ var listLocales = [
 window.onload = function(){
 	var id = window.location.search.replace("?id=", "");
 	var body = document.getElementById("bodyDetails");
-	body.innerHTML = '<h1 class="Name">'+listLocales[id][1]+'</h1><img class="locationImage" src="'+listLocales[id][4]+'"><br><h2 class="slogan">'+listLocales[id][3]+'</h2><br><p class="owner">Dono: </p><p class="ownerName">'+listLocales[id][2]+'</p><p class="details"> '+listLocales[id][5]+'</p>';
+	body.innerHTML = '<h1 class="Name">'+listLocales[id][1]+'</h1><img class="locationImage" src="'+listLocales[id][4]+'"><br><p class="owner">Dono: </p><p class="ownerName">'+listLocales[id][2]+'</p><p class="details"> '+listLocales[id][5]+'</p>';
 };

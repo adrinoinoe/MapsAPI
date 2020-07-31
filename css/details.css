@@ -1,0 +1,53 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    background-color: #e2ebf1;
+}
+
+h1.Name {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    background-color: #545E75;
+    margin-block-end: inherit;
+    margin-block-start: inherit;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    font-family: sans-serif;
+    color: #fff;
+}
+
+img.locationImage {
+    width: 90%;
+    height: 100%;
+    max-height: 520px;
+    margin-left: 5%;
+}
+
+p.owner {
+    display: inline-flex;
+    margin-left: 5%;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-block-start: inherit;
+    color: #545E75;
+    margin-top: 0.4%;
+}
+
+p.ownerName {
+    display: inline;
+    padding-left: 8px;
+    color: #545E75;
+    font-size: 1.2rem;
+}
+
+p.details {
+    color: #545E75;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: justify;
+    font-size: 1.1rem;
+    line-height: 1.7rem;
+}
