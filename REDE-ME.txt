@@ -1,0 +1,4 @@
+FALTA:
+Estilizar as páginas
+Consertar bug na página o mapa em que a informação aparece sempre no ultimo marcador gerado
+Adicionar um botão para criar um novo local de venda
